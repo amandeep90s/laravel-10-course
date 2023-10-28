@@ -4,15 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
+    <title>Tasks Listing</title>
 </head>
 
 <body>
 
-    <h1>Hello I am blade template</h1>
-    @isset($name)
-        <h1>Name is {{ $name }}</h1>
-    @endisset
+    <h1>Tasks List</h1>
+    <ul>
+        @forelse ($tasks as $task)
+            <li>
+                <a href="{{ route('tasks.show', ['id' => $task->id]) }}">{{ $task->title }}</a>
+            </li>
+        @empty
+            <div>There are no Tasks</div>
+        @endforelse
+    </ul>
 </body>
 
 </html>
