@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
-    <title>Tasks Listing</title>
-</head>
+@section('title', 'The list of tasks')
 
-<body>
-
-    <h1>Tasks List</h1>
+@section('content')
     <ul>
         @forelse ($tasks as $task)
             <li>
@@ -20,6 +12,4 @@
             <div>There are no Tasks</div>
         @endforelse
     </ul>
-</body>
-
-</html>
+@endsection
